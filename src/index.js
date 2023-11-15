@@ -1,5 +1,4 @@
 import { fetchBreeds, fetchCatByBreed, } from './cat-api'
-import SlimSelect from 'slim-select';
 
 const select = document.querySelector('.breed-select');
 const loader = document.querySelector('.loader');
@@ -8,13 +7,6 @@ const catInfo = document.querySelector('.cat-info');
 
 select.style.display = 'none';
 showLoader()
-
-// const slim = new SlimSelect({
-//     select: '.breed-select',
-//     settings: {
-//         showSearch: false,
-//     }
-// })
 
 select.addEventListener('change', onSearch);
 
@@ -28,6 +20,9 @@ fetchBreeds()
             select.appendChild(option);
             select.style.display = 'block';
             loader.style.display = 'none';
+            select.style.marginBottom = '10px';
+            option.style.backgroundColor = 'grey';
+            select.style.height = '30px';
         })
     })
     .catch(error => {
@@ -37,8 +32,7 @@ fetchBreeds()
 
 function onSearch() {
     const selectId = select.value;
-    // select.style.backgroundColor = "grey";
-    // option.style.backgroundColor = 'blue';
+    select.style.backgroundColor = "white";
     showLoader();
 
 
@@ -63,7 +57,7 @@ function createMarkup(cat) {
         const { name, temperament, description} = cat.breeds[0];
                 
       return `
-      <img src="${url}" alt="${name}" width='300'>
+      <img src="${url}" alt="${name}" width='400'>
       <h2>${name}</h2>
       <p>${description}</p>
       <h3>Temperament:</h3>
