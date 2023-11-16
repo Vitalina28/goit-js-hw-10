@@ -57,7 +57,7 @@ function createMarkup(cat) {
         const { name, temperament, description} = cat.breeds[0];
                 
       return `
-      <img src="${url}" alt="${name}" width='400'>
+      <img src="${url}" alt="${name}" width='300px' height='auto'>
       <h2>${name}</h2>
       <p>${description}</p>
       <h3>Temperament:</h3>
